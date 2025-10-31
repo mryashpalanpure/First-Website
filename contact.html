@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - INFINITY TECHNO SOLUTION</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-infinity"></i>
+                <span>INFINITY TECHNO SOLUTION</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="products.html" class="nav-link">Products</a>
+                <a href="clients.html" class="nav-link">Clients</a>
+                <a href="contact.html" class="nav-link active">Contact Us</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Us Section -->
+    <section class="contact-section">
+        <div class="contact-background">
+            <div class="contact-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="page-header">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our team for all your software and hardware needs</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h2>Get In Touch</h2>
+                        <p>We're here to help you with all your technology needs. Reach out to us through any of the
+                            following channels:</p>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Phone</h3>
+                                <p>+91 9998104777</p>
+                                <!-- <p>+91 9876543211</p> -->
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>kalpesh@infinitytechnosolution.com</p>
+                                <!-- <p>sales@infinityinfoserve.com</p> -->
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Address</h3>
+                                <p>Shop:10 - Ekta Shopping center,</p>
+                                <p>Beside- Gujarat housing kacheri,Udhna Darwaja</p>
+                                <p>Surat - 395002 , India</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Business Hours</h3>
+                                <p>Monday - Saturday: 10:00 AM - 8:00 PM</p>
+                                <!-- <p>Saturday: 10:00 AM - 4:00 PM</p> -->
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <h3>Follow Us</h3>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inquiry Form -->
+                    <div class="contact-form-container">
+                        <h2>Send Us An Inquiry</h2>
+                        <form class="contact-form" id="inquiry-form" method="post">
+
+                            <div class="form-group">
+                                <label for="name"> Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mobile">Mobile Number *</label>
+                                <input type="tel" id="mobile" name="mobile" required placeholder="9876543210">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email ID *</label>
+                                <input type="email" id="email" name="email" required
+                                    placeholder="your.email@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="state">State *</label>
+                                <input type="text" id="state" name="state" required
+                                    placeholder="Enter your state" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required
+                                    placeholder="Enter your city">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="product">Software/Hardware Name for Inquiry *</label>
+                                <select id="product" name="product" required>
+                                    <option value="">Select a product category</option>
+                                    <optgroup label="Software">
+                                        <option value="Adobe">Adobe</option>
+                                        <option value="Microsoft">Microsoft</option>
+                                        <option value="Coreldraw">CorelDRAW</option>
+                                        <option value="SolidEdge">SolidEdge</option>
+                                        <option value="Ansys">Ansys</option>
+                                        <option value="SketchUp">SketchUp</option>
+                                    </optgroup>
+                                    <optgroup label="Hardware">
+                                        <option value="hp-laptops">HP Laptops</option>
+                                        <option value="dell-desktops">Dell Desktops</option>
+                                        <option value="lenovo-laptops">Lenovo Laptops</option>
+                                        <option value="keyboards or mouses or cpus">Keyboards or Mouses or Cpus</option>
+                                        <option value="graphics-cards">Graphics Cards</option>
+                                        <option value="ram-storage">RAM & Storage</option>
+                                        <option value="printers">Printers & Scanners</option>
+                                    </optgroup>
+                                    <option value="other">Other (Please specify in details)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inquiry-details">Inquiry Details *</label>
+                                <textarea id="inquiry-details" name="inquiry-details" rows="5" required
+                                    placeholder="Please provide details about your inquiry, requirements, quantity, and any specific questions you may have..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="urgency">Urgency Level</label>
+                                <select id="urgency" name="urgency">
+                                    <option value="low">Low - No rush</option>
+                                    <option value="medium" selected>Medium - Within a week</option>
+                                    <option value="high">High - Within 2-3 days</option>
+                                    <option value="urgent">Urgent - Same day</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Send Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>INFINITY TECHNO SOLUTION</h3>
+                    <p>Your trusted partner for licensed software and premium hardware solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +91 9998104777</p>
+                    <p><i class="fas fa-envelope"></i> kalpesh@infinitytechnosolution.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Surat, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 INFINITY TECHNO SOLUTION. All rights reserved. Designed & Developed by<a
+                        href="https://www.linkedin.com/in/yashkumar-palanpure-a6903a339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        target="_blank" class="dvp"> Yash Palanpure.</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

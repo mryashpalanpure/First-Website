@@ -1,0 +1,1515 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation Styles */
+.navbar {
+    background: linear-gradient(to right, #0575E6, #021B79);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    color: #E5E7EB;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-logo i {
+    margin-right: 10px;
+    font-size: 2rem;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #f8f9fa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #FFD700;
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffd700;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* --- START: UPDATED HAMBURGER ICON STYLES --- */
+/* Apne purane .hamburger aur .bar styles ko is poore block se replace kar dein. */
+
+.hamburger {
+    display: none;
+    /* Desktop par by default hide rahega */
+    width: 25px;
+    height: 3px;
+    /* Yeh middle wali line ki height hai */
+    background: white;
+    /* Yeh ab middle wali line ban gayi hai */
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background 0.1s 0.3s ease-in-out;
+    /* Background ko thodi der baad gayab karega */
+}
+
+/* Upar aur neeche ki lines ::before aur ::after se banayenge */
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    /* 25px */
+    height: 3px;
+    /* Lines ki motai */
+    background-color: white;
+    border-radius: 3px;
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+/* Upar wali line ki position */
+.hamburger::before {
+    top: -8px;
+    /* Middle line se 8px upar */
+}
+
+/* Neeche wali line ki position */
+.hamburger::after {
+    top: 8px;
+    /* Middle line se 8px neeche */
+}
+
+/* --- 'X' banane ke liye Animation (jab .active class lagegi) --- */
+
+/* Middle line ko gayab kar denge */
+.hamburger.active {
+    background: transparent;
+}
+
+/* Upar wali line ko ghuma kar 'X' ka hissa banayenge */
+.hamburger.active::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+/* Neeche wali line ko ghuma kar 'X' ka hissa banayenge */
+.hamburger.active::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* --- END: UPDATED HAMBURGER ICON STYLES --- */
+
+@media (max-width: 768px) {
+    /* ... (aapke baaki ke responsive styles) ... */
+
+    /* Purane hamburger/bar ke saare rules hata kar sirf yeh add karein */
+    .hamburger {
+        display: block;
+        /* Mobile par icon ko dikhayega */
+        z-index: 1001;
+    }
+
+    /* ... (aapke baaki ke responsive styles) ... */
+}
+
+.carousel-images {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Images styling */
+.carousel-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    animation: fadeCarousel 12s infinite;
+}
+
+/* Delays for each image */
+.carousel-img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.carousel-img:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.carousel-img:nth-child(3) {
+    animation-delay: 8s;
+}
+
+/* Keyframes for smooth fade transition */
+@keyframes fadeCarousel {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    /* fade in */
+    30% {
+        opacity: 1;
+    }
+
+    /* stay visible */
+    40% {
+        opacity: 0;
+    }
+
+    /* fade out */
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Optional: soft overlay for text readability */
+.carousel-images::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    margin: 0;
+    background: #1a1a1a;
+}
+
+/* Content */
+.hero-content {
+    color: #ffffff;
+    font-weight: bolder;
+    z-index: 3;
+    position: absolute;
+    max-width: 900px;
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 50px 0px 1rem 0px;
+    line-height: 1.2;
+    animation: fadeInUp 1s ease;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.98;
+    animation: fadeInUp 1s ease 0.2s both;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.btn {
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #ffd700;
+    color: #333;
+}
+
+.btn-primary:hover {
+    background: #ffed4e;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #333;
+    transform: translateY(-3px);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 120px 0 80px;
+    text-align: center;
+    color: #F8F9FA;
+    position: relative;
+    z-index: 2;
+}
+
+/* About Section */
+.about-section {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.about-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(30, 60, 114, 0.05) 0%, rgba(42, 82, 152, 0.05) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="about-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="1" fill="rgba(30,60,114,0.1)"/><path d="M20,20 L60,20 L60,60 L20,60 Z" fill="none" stroke="rgba(30,60,114,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23about-pattern)"/></svg>');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.about-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 249, 250, 0.95);
+    z-index: 2;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+/* Features Section */
+.features {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    border-radius: 2px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: #1e3c72;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* About Content */
+.about-content {
+    padding-top: 50px;
+    position: relative;
+    z-index: 3;
+}
+
+/* Desktop Layout (Bade device) */
+.about-grid {
+    display: grid;
+    /* 2fr 1fr ka matlab hai text ko 2 hisse aur image ko 1 hissa space milegi */
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    /* Text aur image ko vertically center karega */
+}
+
+
+.about-text h2 {
+    font-size: 2rem;
+    color: #000000;
+    /* margin: 1.5rem; ko margin-bottom se badalna behtar hai */
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-text h2:first-child {
+    margin-top: 0;
+    /* Pehle h2 se extra top margin hata dein */
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #222222;
+    margin-bottom: 1.5rem;
+}
+
+/* NAYA STYLE: Image ko style karne ke liye */
+.about-image {
+    width: 100%;
+}
+
+.about-image img {
+    width: 100%;
+    /* Image ko apne container (column) mein fit karega */
+    height: auto;
+    /* Aspect ratio banaye rakhega */
+    border-radius: 10px;
+    /* Optional: Thoda border radius accha dikhega */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    /* Optional: Shadow effect */
+}
+
+
+/* ======================================== */
+/* === RESPONSIVE CODE (Mobile device) === */
+/* ======================================== */
+
+/* 768px se chote devices (tablets aur mobile) ke liye */
+@media (max-width: 768px) {
+    .about-grid {
+        /* Grid ko 1 column mein badal dein */
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        /* Mobile par gap kam kar dein */
+    }
+
+    .about-text {
+        /* Mobile par text pehle dikhega (default order) */
+        text-align: center;
+        /* Optional: Text ko center kar dein */
+    }
+
+    .about-image {
+        /* Mobile par image (jo doosra item hai) text ke neeche chali jayegi */
+        margin-top: 1rem;
+        /* Image aur text ke beech thoda gap */
+    }
+
+    .about-image img {
+        max-width: 400px;
+        /* Image ko bahut bada hone se rokein */
+        margin: 0 auto;
+        /* Image ko center mein rakhein */
+        display: block;
+    }
+}
+
+/* Values Section */
+.values {
+    padding-bottom: 40px;
+    background: #f8f9fa;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.value-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.value-card i {
+    font-size: 3rem;
+    color: #1e3c72;
+    margin-bottom: 1rem;
+}
+
+.value-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.value-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Product Filter */
+.product-filter {
+    padding: 40px 0;
+    /* background: #f8f9fa; */
+    position: relative;
+    z-index: 3;
+}
+
+.products-content {
+    position: relative;
+    z-index: 3;
+}
+
+
+.contact-content {
+    position: relative;
+    z-index: 3;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.8rem 2rem;
+    border: 2px solid #1e3c72;
+    background: transparent;
+    color: #1e3c72;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #1e3c72;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Products Section */
+.products-section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.products-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(30, 60, 114, 0.03) 0%, rgba(42, 82, 152, 0.03) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="products-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><rect x="10" y="10" width="40" height="40" fill="none" stroke="rgba(30,60,114,0.08)" stroke-width="1" rx="5"/><circle cx="30" cy="30" r="3" fill="rgba(30,60,114,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23products-pattern)"/></svg>');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.products-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 2;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    padding: 3rem;
+    text-align: center;
+    color: white;
+}
+
+.product-image i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.product-info {
+    padding: 2rem;
+}
+
+.product-info h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.product-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.product-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-tag {
+    background: #e9ecef;
+    color: #1e3c72;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1e3c72;
+}
+
+/* Clients Section */
+.clients-section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.clients-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(30, 60, 114, 0.05) 0%, rgba(42, 82, 152, 0.05) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="clients-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="20" fill="none" stroke="rgba(30,60,114,0.1)" stroke-width="2"/><circle cx="50" cy="50" r="5" fill="rgba(30,60,114,0.2)"/><path d="M20,50 L80,50 M50,20 L50,80" stroke="rgba(30,60,114,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23clients-pattern)"/></svg>');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.clients-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 2;
+}
+
+.mainclients {
+    font-family: sans-serif;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Centers the content vertically */
+}
+
+.logo-grid {
+    display: grid;
+    /* Creates 5 columns of equal width with a minimum of 150px each */
+    grid-template-columns: repeat(5, minmax(150px, 1fr));
+    gap: 30px;
+    /* Adjust the spacing between logos */
+    max-width: 1200px;
+    /* Set a max width for the grid */
+    width: 100%;
+    padding: 20px;
+}
+
+.logo-item {
+    display: flex;
+    /* Centers the image inside the div */
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo-item img {
+    max-width: 100%;
+    /* Ensures the image doesn't overflow its container */
+    height: auto;
+    object-fit: contain;
+    /* Prevents the image from being distorted */
+}
+
+/* You can add a media query to make the layout responsive on smaller screens */
+@media (max-width: 768px) {
+    .logo-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns on mobile */
+    }
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(30, 60, 114, 0.03) 0%, rgba(42, 82, 152, 0.03) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="contact-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse"><rect x="20" y="20" width="80" height="80" fill="none" stroke="rgba(30,60,114,0.08)" stroke-width="1" rx="10"/><circle cx="60" cy="60" r="8" fill="rgba(30,60,114,0.1)"/><path d="M40,40 L80,40 L80,80 L40,80 Z" fill="none" stroke="rgba(30,60,114,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23contact-pattern)"/></svg>');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.contact-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 2;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.contact-info>p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.contact-icon {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.contact-icon i {
+    font-size: 1.2rem;
+}
+
+.contact-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.contact-details p {
+    color: rgb(16, 16, 16);
+    margin-bottom: 0.3rem;
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(30, 60, 114, 0.3);
+}
+
+/* Contact Form */
+
+/* === Inquiry Form Modern Premium Styling === */
+.contact-form-container {
+    background: #EBEFFF; /* Soft lavender-blue background */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle premium shadow */
+    border: 1px solid #CBD5F0; /* Light border for clean edge */
+    font-family: "Poppins", sans-serif; /* Modern tech-friendly font */
+}
+
+.contact-form-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #0F172A; /* Deep navy title color */
+    font-weight: 700;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #1E293B; /* Dark slate text */
+    font-weight: 600;
+}
+
+/* === Input Fields === */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem;
+    border: 2px solid #CBD5F0; /* Light bluish-gray border */
+    border-radius: 8px;
+    background-color: #FFFFFF; /* Clean white background */
+    font-size: 1rem;
+    color: #1E293B;
+    transition: all 0.3s ease;
+}
+
+/* Focus Effect */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #3B82F6; /* Bright blue active border */
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.3);
+}
+
+/* Textarea clean style */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* === Disabled Dropdown === */
+.form-group select:disabled {
+    background-color: #F8FAFC;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* === Send Button === */
+.btn-full {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000000; /* Black text for strong contrast */
+    background: #FFD60A; /* Bright yellow CTA */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+}
+
+/* Hover Gradient Effect */
+.btn-full:hover {
+    background: linear-gradient(90deg, #FFD60A, #FFC300);
+    transform: translateY(-2px);
+}
+
+/* === Small Responsive Tweaks === */
+@media (max-width: 600px) {
+    .contact-form-container {
+        padding: 1.2rem;
+    }
+    .contact-form-container h2 {
+        font-size: 1.7rem;
+    }
+}
+
+
+.dvp {
+    color: yellow;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* CTA Section */
+.cta {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #DCDCDC;
+}
+
+.footer-section p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #FFB700;
+}
+
+.footer-bottom {
+    border-top: 1px solid #555;
+    padding-top: 2rem;
+    text-align: center;
+    color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    /* Hero responsive styles */
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+        gap: 0.8rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+    }
+
+    .nav-container {
+        position: relative;
+    }
+
+    .nav-menu {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -300px;
+        flex-direction: column;
+        background: linear-gradient(135deg, #33529D 0%, #2a5298 100%);
+        width: 100%;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        padding: 1rem 0;
+        border-radius: 0 0 15px 15px;
+        z-index: 999;
+        margin: 0 20px;
+        width: calc(100% - 40px);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+    }
+
+    .nav-menu.active {
+        top: 70px;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav-menu a {
+        margin: 0;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        display: block;
+    }
+
+    .nav-menu a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: scale(1.05);
+    }
+
+    .nav-menu a:last-child {
+        border-bottom: none;
+        border-radius: 0 0 15px 15px;
+    }
+
+    /* Add backdrop blur effect when menu is open */
+    .nav-menu.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.1);
+        z-index: -1;
+        backdrop-filter: blur(2px);
+        opacity: 1;
+    }
+
+    .nav-menu::before {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .clients-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .cta h2 {
+        font-size: 2rem;
+    }
+
+    .floating-card {
+        display: none;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .nav-menu {
+        margin: 0 10px;
+        width: calc(100% - 20px);
+    }
+
+    .nav-menu a {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 1.5rem;
+    }
+
+    .product-card {
+        margin: 0 10px;
+    }
+
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeInUp 0.6s ease;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s ease;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading animation */
+.loading {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.loading.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Product dropdown theme (animated select replacement) */
+.cdrop {
+    position: relative;
+}
+
+.cdrop-toggle {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%) !important;
+    border-color: #d7e3ff !important;
+    color: #1f2937 !important;
+    border-radius: 10px !important;
+}
+
+.cdrop-toggle:hover {
+    box-shadow: 0 6px 18px rgba(30, 60, 114, 0.12);
+}
+
+.cdrop-arrow {
+    color: #1e3c72 !important;
+}
+
+.cdrop.open .cdrop-arrow {
+    color: #ffd700 !important;
+}
+
+.cdrop-menu {
+    background: linear-gradient(135deg, #eef4ff 0%, #fff9e6 100%) !important;
+    border: 1px solid #e4ecff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 14px 40px rgba(30, 60, 114, 0.15) !important;
+    padding: 8px !important;
+}
+
+.cdrop-group {
+    font-weight: 800 !important;
+    color: #334155 !important;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+}
+
+.cdrop-item {
+    background: #ffffff !important;
+    margin: 4px 0;
+    border: 1px solid transparent;
+    transition: background .15s ease, transform .05s ease, border-color .15s ease, color .15s ease;
+}
+
+.cdrop-item:hover {
+    background: #fff7d1 !important;
+    border-color: #ffd700 !important;
+    color: #1e3c72 !important;
+}
+
+.cdrop-item:active {
+    transform: scale(.98);
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .hero-content {
+        padding: 0 15px;
+    }
+}
+
+.cdrop-item[aria-selected="true"] {
+    background: #e6f0ff !important;
+    border-color: #1e3c72 !important;
+    color: #1e3c72 !important;
+}
+
+.cdrop-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cdrop-menu::-webkit-scrollbar-thumb {
+    background: linear-gradient(#ffd700, #1e3c72);
+    border-radius: 8px;
+}

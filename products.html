@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - INFINITY TECHNO SOLUTION</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-infinity"></i>
+                <span>INFINITY TECHNO SOLUTION</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="products.html" class="nav-link active">Products</a>
+                <a href="clients.html" class="nav-link">Clients</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="products-background">
+            <div class="products-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="page-header">
+                <h1>Our Products</h1>
+                <p>Licensed Software & Premium Hardware Solutions</p>
+            </div>
+
+            <!-- Product Filter -->
+            <div class="product-filter">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Products</button>
+                    <button class="filter-btn" data-filter="software">Software</button>
+                    <button class="filter-btn" data-filter="hardware">Hardware</button>
+                </div>
+            </div>
+
+            <!-- Software Products -->
+            <div class="products-content">
+                <h2 class="section-title">Software Solutions</h2>
+                <div class="products-grid" id="software-products">
+                    <div class="product-card" data-category="software">
+                        <div class="product-image">
+                            <img src="adobe.png" alt="Adobe Logo" style="width: 150px; height: 150px;">
+                        </div>
+                        <div class="product-info">
+                            <h3>Adobe</h3>
+                            <p>Infinity Techno Solution is a partner for Adobe in India, the highest level of partnership offered by Adobe in India. Adobe systems incorporated builds award winning software solutions for network publishing, including web, print, video, wireless and broadband applications.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">Photoshop</span>
+                                <span class="feature-tag">Illustrator</span>
+                                <span class="feature-tag">InDesign</span>
+                            </div>
+                            <div class="product-price">Starting from ₹2,999/month</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="software">
+                        <div class="product-image">
+                            <img src="microsoft.webp" alt="Microsoft Logo" style="width: 150px; height: 150px;">
+                        </div>
+                        <div class="product-info">
+                            <h3>Microsoft</h3>
+                            <p>Infinity Techno Solution is a certified partner of Microsoft in India as well as one of the leading license software sales and support organization in India.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">Word</span>
+                                <span class="feature-tag">Excel</span>
+                                <span class="feature-tag">PowerPoint</span>
+                            </div>
+                            <div class="product-price">Starting from ₹1,999/month</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="software">
+                        <div class="product-image">
+                            <img src="coreldraw.png" alt="CorelDRAW Logo" style="width: 150px; height: 150px;">
+                        </div>
+                        <div class="product-info">
+                            <h3>Coreldraw</h3>
+                            <p>Corel Corporation provides easy to use personal productivity software that helps millions of users word wide run their business and extend their creativity at work and at home.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">Vector Graphics</span>
+                                <span class="feature-tag">Photo Editing</span>
+                                <span class="feature-tag">Typography</span>
+                            </div>
+                            <div class="product-price">Starting from ₹1,499/month</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="software">
+                        <div class="product-image">
+                            <img src="sketchup.jpg" alt="Visual Studio Logo" style="width: 150px; height: 150px;">
+                        </div>
+                        <div class="product-info">
+                            <h3>Sketch Up</h3>
+                            <p>SketchUp is a user-friendly 3D modeling software used for architecture, interior design, engineering, construction, product design, and more. It allows users to easily create, visualize, and share 3D models with realistic textures, lighting, and layouts. With its intuitive tools, vast 3D Warehouse library, and support for plugins, SketchUp is widely used by both beginners and professionals for fast, accurate, and creative design work.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">Architecture</span>
+                                <span class="feature-tag">Interior Design</span>
+                                <span class="feature-tag">3D Modeling</span>
+                            </div>
+                            <div class="product-price">Starting from ₹3,999/month</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="software">
+                        <div class="product-image">
+                            <img src="solidedge.png" alt="Microsoft SQL Server Logo"
+                                style="width: 150px; height: 150px;">
+                        </div>
+                        <div class="product-info">
+                            <h3>Solid Edge</h3>
+                            <p>Solid Edge is a professional 3D computer-aided design (CAD) software suite that helps engineers and designers create, simulate, and manage product designs. It features a unique "synchronous technology" which combines the flexibility of direct modeling with the precision of parametric design. This makes it easier to make rapid changes to a model while maintaining design intent, streamlining the entire product development process from concept to manufacturing.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">Simulation </span>
+                                <span class="feature-tag">3D Modeling</span>
+                                <span class="feature-tag">Manufacturing </span>
+                            </div>
+                            <div class="product-price">Starting from ₹4,999/month</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="software">
+                        <div class="product-image">
+                            <img src="cadmate.png" alt="Antivirus Logo" style="width: 150px; height: 150px;">
+                        </div>
+                        <div class="product-info">
+                            <h3>Cadmate</h3>
+                            <p>Cadmate is an affordable 2D and 3D CAD software used for drafting, design, and documentation in fields like architecture and engineering. It's known for its high compatibility with industry-standard file formats such as DWG and DXF, making it a practical choice for professionals who need to collaborate with users of other CAD programs. Its user-friendly interface is designed to be familiar to those with prior experience in similar software, helping to reduce the learning curve.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">3D Modeling </span>
+                                <span class="feature-tag">File Compatibility</span>
+                                <span class="feature-tag">2D Drafting</span>
+                            </div>
+                            <div class="product-price">Starting from ₹999/year</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hardware Products -->
+            <div class="products-content">
+                <h2 class="section-title">Hardware Solutions</h2>
+                <div class="products-grid" id="hardware-products">
+                    <div class="product-card" data-category="hardware">
+                        <div class="product-image">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Laptops</h3>
+                            <p>High-performance laptops for business and personal use with latest processors.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">Business</span>
+                                <span class="feature-tag">Gaming</span>
+                                <span class="feature-tag">Ultrabook</span>
+                            </div>
+                            <div class="product-price">Starting from ₹45,999</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="hardware">
+                        <div class="product-image">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Desktops & CPUs</h3>
+                            <p>Powerful desktop computers and cpu for office and home use with customizable configurations.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">Office</span>
+                                <span class="feature-tag">Gaming</span>
+                                <span class="feature-tag">Workstation</span>
+                            </div>
+                            <div class="product-price">Starting from ₹35,999</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="hardware">
+                        <div class="product-image">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Keyboards & Mouses</h3>
+                            <p>High-quality keyboards & mouses for gaming and professional uses.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">Gaming</span>
+                                <span class="feature-tag">RGB</span>
+                                <span class="feature-tag">Wireless</span>
+                            </div>
+                            <div class="product-price">Starting from ₹2,999</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="hardware">
+                        <div class="product-image">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Graphics Cards</h3>
+                            <p>High-performance graphics cards from NVIDIA and AMD for gaming and professional work.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">NVIDIA</span>
+                                <span class="feature-tag">AMD</span>
+                                <span class="feature-tag">Gaming</span>
+                            </div>
+                            <div class="product-price">Starting from ₹15,999</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="hardware">
+                        <div class="product-image">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>RAM & Storage</h3>
+                            <p>High-speed RAM modules and SSD storage solutions for enhanced performance.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">DDR4</span>
+                                <span class="feature-tag">SSD</span>
+                                <span class="feature-tag">NVMe</span>
+                            </div>
+                            <div class="product-price">Starting from ₹3,999</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="hardware">
+                        <div class="product-image">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Printers & Scanners</h3>
+                            <p>Professional printers and scanners for office and home use.</p>
+                            <div class="product-features">
+                                <span class="feature-tag">Laser</span>
+                                <span class="feature-tag">Inkjet</span>
+                                <span class="feature-tag">Wireless</span>
+                            </div>
+                            <div class="product-price">Starting from ₹8,999</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Need a Custom Solution?</h2>
+            <p>Contact us for personalized software and hardware recommendations</p>
+            <a href="contact.html" class="btn btn-primary">Get Custom Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>INFINITY TECHNO SOLUTION</h3>
+                    <p>Your trusted partner for licensed software and premium hardware solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +91 9998104777</p>
+                    <p><i class="fas fa-envelope"></i> kalpesh@infinitytechnosolution.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Surat, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 INFINITY TECHNO SOLUTION. All rights reserved. Designed & Developed by <a href="https://www.linkedin.com/in/yashkumar-palanpure-a6903a339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="dvp"> Yash Palanpure.</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
